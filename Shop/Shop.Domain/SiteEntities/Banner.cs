@@ -1,0 +1,50 @@
+﻿using Common.Domain.Exceptions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Shop.Domaion.SiteEntities
+{
+    public class Banner
+    {
+        public Banner(string link, string imageName, BannerPosition position)
+        {
+            Guard(link, imageName);
+            Link = link;
+            ImageName = imageName;
+            Position = position;
+        }
+
+        public string Link{ get; private set; }
+
+        public string  ImageName { get; private set; }
+
+        public BannerPosition Position { get; private set; }
+
+
+
+
+        public void Edit(string link, string imageName, BannerPosition position)
+        {
+            Guard(link, imageName);
+            Link = link;
+            ImageName = imageName;
+            Position = position;
+        }
+
+        public void Guard(string link,string imageName)
+        {
+            NullOrEmptyDomainDataException.CheckString(link, nameof(link));
+
+            NullOrEmptyDomainDataException.CheckString(imageName,nameof(imageName));
+        }
+    }
+
+    public enum BannerPosition
+    {
+        زیر_اسلایدرl,
+        سمت_راست_اسلایدر
+    }
+}
