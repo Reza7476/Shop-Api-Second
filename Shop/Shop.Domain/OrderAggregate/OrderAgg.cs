@@ -33,7 +33,7 @@ namespace Shop.Domain.OrderAggregate
         public List<OrderItemAgg> Items { get; private set; }
         public DateTime? LastUpdate { get; set; }
         public int ItemCount => Items.Count;
-        public ShippingMethod? ShippingMethod { get; set; }
+        public OrderShippingMethod? ShippingMethod { get; set; }
 
         public int TotalPrice
         {
@@ -66,11 +66,7 @@ namespace Shop.Domain.OrderAggregate
 
         public void RemoveItem(long itemId)
         {
-<<<<<<< Updated upstream
             ChangeOrderGuard();
-=======
-            ChangeOredeGuard();
->>>>>>> Stashed changes
             var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
             if (currentItem != null)
             {
@@ -79,29 +75,28 @@ namespace Shop.Domain.OrderAggregate
         }
         public void ChangeCountItem(int itemId, int newCount)
         {
-<<<<<<< Updated upstream
+
             ChangeOrderGuard();
             var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
             if (currentItem == null)
-=======
-            var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
-            if (currentItem == null)
->>>>>>> Stashed changes
-            {
                 throw new NullOrEmptyDomainDataException();
-            }
+          
             currentItem.ChangeCount(newCount);
         }
 
         public void DecreaseItemCount(long itemId, int count)
         {
+            ChangeOrderGuard();
             var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
             if (currentItem == null)
                 throw new InvalidDomainDataException();
             currentItem.DecreaseCount(count);
         }
+       
+        
         public void IcreaseItemCount(long itemId, int count)
         {
+             ChangeOrderGuard();
             var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
 
 
@@ -115,15 +110,20 @@ namespace Shop.Domain.OrderAggregate
             LastUpdate = DateTime.Now;
         }
 
+        public void Finally()
+        {
+            
+        }
 
-
-        public void CheckOut(OrderAddressAgg orderAddress)
+        public void CheckOut(OrderAddressAgg orderAddress,OrderShippingMethod shippingMethod)
         {
             ChangeOrderGuard();
             Address = orderAddress;
+
+            ShippingMethod = shippingMethod;    
         }
 
-<<<<<<< Updated upstream
+
        public void ChangeOrderGuard()
         {
             if (Status != OrderStatus.Pennding)
@@ -131,13 +131,7 @@ namespace Shop.Domain.OrderAggregate
         }
 
 
-=======
-        //public void ChangeOrederGuard()
-        //{
-        //    if (Status != OrderStatus.Pennding)
-        //        throw new InvalidDomainDataException("امکان ویرایش این محصول وجود ندارد");
-        //}
->>>>>>> Stashed changes
+
     }
 
 
