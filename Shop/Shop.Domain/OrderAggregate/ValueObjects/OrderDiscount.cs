@@ -1,6 +1,6 @@
 ﻿using Common.Domain;
 
-namespace Shop.Domaion.OrderAggregate.ValueObjects
+namespace Shop.Domain.OrderAggregate.ValueObjects
 {
     public class OrderDiscount : ValueObject
     {

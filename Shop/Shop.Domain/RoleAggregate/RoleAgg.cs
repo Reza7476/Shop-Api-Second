@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.RoleAggregate
+namespace Shop.Domain.RoleAggregate
 {
-    public class RoleAgg:AggregateRoot
+    public class RoleAgg : AggregateRoot
     {
 
 
-       
+
 
         public string Title { get; private set; }
         public List<RolePermissionAgg> Permissions { get; private set; }
@@ -31,8 +31,8 @@ namespace Shop.Domaion.RoleAggregate
         public RoleAgg(string title)
         {
             NullOrEmptyDomainDataException.CheckString(title, nameof(title));
-            Title =title;
-            Permissions= new List<RolePermissionAgg>();   
+            Title = title;
+            Permissions = new List<RolePermissionAgg>();
 
         }
 
@@ -42,10 +42,10 @@ namespace Shop.Domaion.RoleAggregate
             Permissions = permission;
         }
 
-        public void Edit( string title)
+        public void Edit(string title)
         {
 
-            NullOrEmptyDomainDataException.CheckString(title,nameof(title)) ;
+            NullOrEmptyDomainDataException.CheckString(title, nameof(title));
             Title = title;
         }
 

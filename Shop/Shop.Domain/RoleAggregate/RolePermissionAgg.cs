@@ -1,12 +1,12 @@
 ﻿using Common.Domain;
-using Shop.Domaion.RoleAggregate.Enums;
+using Shop.Domain.RoleAggregate.Enums;
 
-namespace Shop.Domaion.RoleAggregate
+namespace Shop.Domain.RoleAggregate
 {
-    public class RolePermissionAgg:BaseEntity
+    public class RolePermissionAgg : BaseEntity
     {
-        public long  RoleAggTd { get;  set; }
-        public RolePermission RolePermissio { get;  set; }
+        public long RoleAggTd { get; set; }
+        public RolePermission RolePermissio { get; set; }
     }
 
 

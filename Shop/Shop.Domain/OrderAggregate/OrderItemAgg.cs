@@ -1,9 +1,9 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
 
-namespace Shop.Domaion.OrderAggregate
+namespace Shop.Domain.OrderAggregate
 {
-    public class OrderItemAgg:BaseEntity
+    public class OrderItemAgg : BaseEntity
     {
         public OrderItemAgg(long inventoryId, int count, int price)
         {
@@ -64,13 +64,13 @@ namespace Shop.Domaion.OrderAggregate
         {
 
             if (Count == 1)
-           
+
                 return;
             if (Count - count <= 0)
                 return;
 
             Count -= count;
-            
+
         }
     }
 

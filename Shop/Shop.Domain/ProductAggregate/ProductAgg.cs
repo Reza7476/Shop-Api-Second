@@ -2,19 +2,19 @@
 using Common.Domain.Exceptions;
 using Common.Domain.Utils;
 using Common.Domain.ValueObjects;
-using Shop.Domaion.ProductAggregate.Services;
+using Shop.Domain.ProductAggregate.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.ProductAggregate
+namespace Shop.Domain.ProductAggregate
 {
     public class ProductAgg : AggregateRoot
     {
 
-       
+
 
         public string Title { get; private set; }
         public string ImageName { get; private set; }
@@ -48,10 +48,10 @@ namespace Shop.Domaion.ProductAggregate
 
 
         public void Edit(string title, string imageName, string description,
-            long categoryId, long subCategoryId, long secondrySubCategoryId, string slug, SeoData seoData,IProductDomainService domainService)
+            long categoryId, long subCategoryId, long secondrySubCategoryId, string slug, SeoData seoData, IProductDomainService domainService)
         {
 
-            Guard(title, imageName, description, slug,domainService);
+            Guard(title, imageName, description, slug, domainService);
             Title = title;
             ImageName = imageName;
             Description = description;
@@ -86,7 +86,7 @@ namespace Shop.Domaion.ProductAggregate
         }
 
 
-        public void Guard(string title, string imageName, string description,string slug,
+        public void Guard(string title, string imageName, string description, string slug,
             IProductDomainService productDomainService)
         {
             NullOrEmptyDomainDataException.CheckString(title, nameof(title));
@@ -95,9 +95,9 @@ namespace Shop.Domaion.ProductAggregate
 
             if (slug != Slug)
                 if (productDomainService.SlugIsExist(slug.ToSlug()))
-                    throw new SlugIsDublicatedException(""); 
+                    throw new SlugIsDublicatedException("");
 
-            
+
 
 
 

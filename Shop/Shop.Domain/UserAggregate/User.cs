@@ -1,7 +1,7 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
-using Shop.Domaion.UserAggregate.Enums;
-using Shop.Domaion.UserAggregate.Services;
+using Shop.Domain.UserAggregate.Enums;
+using Shop.Domain.UserAggregate.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace Shop.Domaion.UserAggregate
+namespace Shop.Domain.UserAggregate
 {
     public class User : AggregateRoot
     {

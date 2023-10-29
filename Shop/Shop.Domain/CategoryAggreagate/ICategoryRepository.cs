@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.CategoryAggreagate
+namespace Shop.Domain.CategoryAggreagate
 {
-    public interface ICategoryRepository:IBaseRepository<CategoryAgg>
+    public interface ICategoryRepository : IBaseRepository<CategoryAgg>
     {
 
 

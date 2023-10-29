@@ -1,7 +1,7 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
-using Shop.Domaion.OrderAggregate.Enums;
-using Shop.Domaion.OrderAggregate.ValueObjects;
+using Shop.Domain.OrderAggregate.Enums;
+using Shop.Domain.OrderAggregate.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.OrderAggregate
+namespace Shop.Domain.OrderAggregate
 {
     public class OrderAgg : AggregateRoot
     {
@@ -58,7 +58,7 @@ namespace Shop.Domaion.OrderAggregate
             var oldItem = Items.FirstOrDefault(f => f.InventoryId == item.InventoryId);
             if (oldItem != null)
             {
-                oldItem.ChangeCount(item.Count+oldItem.Count);
+                oldItem.ChangeCount(item.Count + oldItem.Count);
                 return;
             }
             Items.Add(item);
@@ -81,8 +81,8 @@ namespace Shop.Domaion.OrderAggregate
         {
 <<<<<<< Updated upstream
             ChangeOrderGuard();
-            var currentItem=Items.FirstOrDefault(f => f.Id == itemId);  
-            if(currentItem== null)
+            var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
+            if (currentItem == null)
 =======
             var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
             if (currentItem == null)
@@ -95,16 +95,14 @@ namespace Shop.Domaion.OrderAggregate
 
         public void DecreaseItemCount(long itemId, int count)
         {
-            ChangeOredeGuard();
-            var currentItem = Items.FirstOrDefault(f=>f.Id==itemId);
+            var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
             if (currentItem == null)
                 throw new InvalidDomainDataException();
             currentItem.DecreaseCount(count);
         }
         public void IcreaseItemCount(long itemId, int count)
         {
-            ChangeOredeGuard();
-            var currentItem=Items.FirstOrDefault(f=>f.Id == itemId);
+            var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
 
 
             if (currentItem == null)
@@ -126,7 +124,7 @@ namespace Shop.Domaion.OrderAggregate
         }
 
 <<<<<<< Updated upstream
-        void ChangeOrderGuard()
+       public void ChangeOrderGuard()
         {
             if (Status != OrderStatus.Pennding)
                 throw new InvalidDomainDataException("امکان ثبت محصول د راین سفارش وجود ندارد");
@@ -134,11 +132,11 @@ namespace Shop.Domaion.OrderAggregate
 
 
 =======
-        public void ChangeOredeGuard()
-        {
-            if (Status != OrderStatus.Pennding)
-                throw new InvalidDomainDataException("امکان ویرایش این محصول وجود ندارد");
-        }
+        //public void ChangeOrederGuard()
+        //{
+        //    if (Status != OrderStatus.Pennding)
+        //        throw new InvalidDomainDataException("امکان ویرایش این محصول وجود ندارد");
+        //}
 >>>>>>> Stashed changes
     }
 

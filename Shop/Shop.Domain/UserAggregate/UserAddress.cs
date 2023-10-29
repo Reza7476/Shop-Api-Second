@@ -1,7 +1,7 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
 
-namespace Shop.Domaion.UserAggregate
+namespace Shop.Domain.UserAggregate
 {
     public class UserAddress : BaseEntity
     {
@@ -36,11 +36,11 @@ namespace Shop.Domaion.UserAggregate
 
         public void SetActive()
         {
-            ActivAddress = true;    
+            ActivAddress = true;
         }
         public void Edit(string province, string city, string postalCode, string name, string family, string postalAddress, string phoneNumber, string nationalCode)
         {
-            Guard( province,  city,  postalCode,  name,  family,  postalAddress,  phoneNumber,  nationalCode);
+            Guard(province, city, postalCode, name, family, postalAddress, phoneNumber, nationalCode);
             Province = province;
             City = city;
             PostalCode = postalCode;

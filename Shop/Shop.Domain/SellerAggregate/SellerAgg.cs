@@ -1,13 +1,13 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
-using Shop.Domaion.SellerAggregate.Enums;
+using Shop.Domain.SellerAggregate.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.SellerAggregate
+namespace Shop.Domain.SellerAggregate
 {
     public class SellerAgg : AggregateRoot
     {
@@ -47,7 +47,7 @@ namespace Shop.Domaion.SellerAggregate
 
         public void EditInventory(SellerInventoryAgg newInventory)
         {
-            var currentInventory = Inventories.FirstOrDefault(f => f.Id == newInventory .Id);
+            var currentInventory = Inventories.FirstOrDefault(f => f.Id == newInventory.Id);
             if (currentInventory == null)
                 throw new NullOrEmptyDomainDataException("محصول یافت نشد");
             Inventories.Remove(currentInventory);
@@ -62,8 +62,8 @@ namespace Shop.Domaion.SellerAggregate
             if (inventory == null)
                 throw new NullOrEmptyDomainDataException("محصول یافت نشد");
 
-            Inventories.Remove(inventory); 
-            
+            Inventories.Remove(inventory);
+
         }
         public void ChangeStatus(SellerStatus status)
         {

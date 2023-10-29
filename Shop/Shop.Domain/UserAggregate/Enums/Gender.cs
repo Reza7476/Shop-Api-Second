@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.UserAggregate.Enums
+namespace Shop.Domain.UserAggregate.Enums
 {
     public enum Gender
     {

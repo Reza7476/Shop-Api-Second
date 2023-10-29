@@ -1,8 +1,8 @@
 ﻿using Common.Domain;
 
-namespace Shop.Domaion.OrderAggregate
+namespace Shop.Domain.OrderAggregate
 {
-    public class OrderAddressAgg:BaseEntity
+    public class OrderAddressAgg : BaseEntity
     {
         public OrderAddressAgg(string province, string city, string postalCode, string postalAddress, string name, string family, string phoneNumber, string nationalCode)
         {
@@ -14,10 +14,10 @@ namespace Shop.Domaion.OrderAggregate
             Family = family;
             PhoneNumber = phoneNumber;
             NationalCode = nationalCode;
-           
+
         }
 
-        public long OrdreId { get;internal set; }
+        public long OrdreId { get; internal set; }
         public string Province { get; private set; }
         public string City { get; private set; }
         public string PostalCode { get; private set; }
@@ -28,7 +28,7 @@ namespace Shop.Domaion.OrderAggregate
         public string PhoneNumber { get; private set; }
 
         public string NationalCode { get; private set; }
-       
+
 
         public OrderAgg Order { get; set; }
     }

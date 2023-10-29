@@ -1,7 +1,7 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
 
-namespace Shop.Domaion.SellerAggregate
+namespace Shop.Domain.SellerAggregate
 {
     public class SellerInventoryAgg : BaseEntity
     {

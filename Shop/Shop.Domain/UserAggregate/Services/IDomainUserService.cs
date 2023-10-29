@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.UserAggregate.Services
+namespace Shop.Domain.UserAggregate.Services
 {
     public interface IDomainUserService
     {

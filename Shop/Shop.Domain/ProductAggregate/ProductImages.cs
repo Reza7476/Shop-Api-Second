@@ -1,7 +1,7 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
 
-namespace Shop.Domaion.ProductAggregate
+namespace Shop.Domain.ProductAggregate
 {
     public class ProductImages : BaseEntity
     {
@@ -12,9 +12,9 @@ namespace Shop.Domaion.ProductAggregate
             Sequence = sequence;
         }
 
-        public long  ProductId { get; internal set; }
+        public long ProductId { get; internal set; }
 
-        public string  ImageName { get; private set; }
+        public string ImageName { get; private set; }
         public int Sequence { get; private set; }
 
 

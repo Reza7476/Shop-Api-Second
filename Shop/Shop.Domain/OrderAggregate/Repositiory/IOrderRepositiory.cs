@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.OrderAggregate.Repositiory
+namespace Shop.Domain.OrderAggregate.Repositiory
 {
-    public interface IOrderRepositiory:IBaseRepository<OrderAgg>
+    public interface IOrderRepositiory : IBaseRepository<OrderAgg>
     {
         Task<OrderAgg> GetCurrentUserOrder(long userId);
 

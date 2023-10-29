@@ -1,7 +1,7 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
 
-namespace Shop.Domaion.ProductAggregate
+namespace Shop.Domain.ProductAggregate
 {
     public class ProductSpecification : BaseEntity
     {
@@ -16,7 +16,7 @@ namespace Shop.Domaion.ProductAggregate
 
         public long ProductId { get; internal set; }
 
-        public string  Key { get; private set; }
-        public string  Value { get; private set; }
+        public string Key { get; private set; }
+        public string Value { get; private set; }
     }
 }

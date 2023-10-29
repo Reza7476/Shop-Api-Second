@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.ProductAggregate.Services
+namespace Shop.Domain.ProductAggregate.Services
 {
     public interface IProductDomainService
     {

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.RoleAggregate.Repository
+namespace Shop.Domain.RoleAggregate.Repository
 {
-    public interface IRoleRepository:IBaseRepository<RoleAgg>
+    public interface IRoleRepository : IBaseRepository<RoleAgg>
     {
     }
 }

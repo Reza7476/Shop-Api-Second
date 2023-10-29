@@ -1,8 +1,8 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
-using Shop.Domaion.UserAggregate.Enums;
+using Shop.Domain.UserAggregate.Enums;
 
-namespace Shop.Domaion.UserAggregate
+namespace Shop.Domain.UserAggregate
 {
     public class UserWallet : BaseEntity
     {
@@ -19,7 +19,7 @@ namespace Shop.Domaion.UserAggregate
 
         public long UserId { get; internal set; }
         public int Price { get; private set; }
-        public string  Description { get; private set; }
+        public string Description { get; private set; }
         public bool IsFinally { get; private set; }
         public DateTime? FinalDate { get; private set; }
         public WalletType Type { get; private set; }
@@ -35,7 +35,7 @@ namespace Shop.Domaion.UserAggregate
         public void Finaly()
         {
             IsFinally = true;
-            FinalDate = DateTime.Now;   
+            FinalDate = DateTime.Now;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.SiteEntities
+namespace Shop.Domain.SiteEntities
 {
     public class Banner
     {
@@ -17,9 +17,9 @@ namespace Shop.Domaion.SiteEntities
             Position = position;
         }
 
-        public string Link{ get; private set; }
+        public string Link { get; private set; }
 
-        public string  ImageName { get; private set; }
+        public string ImageName { get; private set; }
 
         public BannerPosition Position { get; private set; }
 
@@ -34,11 +34,11 @@ namespace Shop.Domaion.SiteEntities
             Position = position;
         }
 
-        public void Guard(string link,string imageName)
+        public void Guard(string link, string imageName)
         {
             NullOrEmptyDomainDataException.CheckString(link, nameof(link));
 
-            NullOrEmptyDomainDataException.CheckString(imageName,nameof(imageName));
+            NullOrEmptyDomainDataException.CheckString(imageName, nameof(imageName));
         }
     }
 

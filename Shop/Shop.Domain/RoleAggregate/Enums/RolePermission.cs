@@ -1,4 +1,4 @@
-﻿namespace Shop.Domaion.RoleAggregate.Enums
+﻿namespace Shop.Domain.RoleAggregate.Enums
 {
     public enum RolePermission
     {

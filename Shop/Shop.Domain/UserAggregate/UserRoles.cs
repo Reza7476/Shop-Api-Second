@@ -1,6 +1,6 @@
 ﻿using Common.Domain;
 
-namespace Shop.Domaion.UserAggregate
+namespace Shop.Domain.UserAggregate
 {
     public class UserRoles : BaseEntity
     {

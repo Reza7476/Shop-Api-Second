@@ -1,4 +1,4 @@
-﻿namespace Shop.Domaion.SellerAggregate.Enums
+﻿namespace Shop.Domain.SellerAggregate.Enums
 {
     public enum SellerStatus
     {

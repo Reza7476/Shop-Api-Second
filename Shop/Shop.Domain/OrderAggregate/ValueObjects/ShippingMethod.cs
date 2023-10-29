@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domaion.OrderAggregate.ValueObjects
+namespace Shop.Domain.OrderAggregate.ValueObjects
 {
-    public class ShippingMethod:ValueObject
+    public class ShippingMethod : ValueObject
     {
         public ShippingMethod(string shippingType, int shippingCost)
         {
@@ -15,8 +15,8 @@ namespace Shop.Domaion.OrderAggregate.ValueObjects
             ShippingCost = shippingCost;
         }
 
-        public string ShippingType { get;private set; }
-        public int  ShippingCost { get;  private  set; }
+        public string ShippingType { get; private set; }
+        public int ShippingCost { get; private set; }
 
     }
 }
