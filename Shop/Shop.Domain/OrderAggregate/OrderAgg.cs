@@ -115,19 +115,19 @@ namespace Shop.Domain.OrderAggregate
             
         }
 
-        public void CheckOut(OrderAddressAgg orderAddress,OrderShippingMethod shippingMethod)
+        public void CheckOut(OrderAddressAgg orderAddress)
         {
             ChangeOrderGuard();
             Address = orderAddress;
 
-            ShippingMethod = shippingMethod;    
+           // ShippingMethod = shippingMethod;    
         }
 
 
        public void ChangeOrderGuard()
         {
             if (Status != OrderStatus.Pennding)
-                throw new InvalidDomainDataException("امکان ثبت محصول د راین سفارش وجود ندارد");
+                throw new InvalidDomainDataException("امکان ویرایش این سفارش وجود ندارد");
         }
 
 
