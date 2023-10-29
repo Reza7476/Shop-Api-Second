@@ -1,7 +1,8 @@
 ﻿using Common.Application;
-using Shop.Domaion.OrderAggregate;
-using Shop.Domaion.OrderAggregate.Repositiory;
-using Shop.Domaion.SellerAggregate.Repository;
+using Shop.Domain.OrderAggregate;
+using Shop.Domain.OrderAggregate.Repositiory;
+using Shop.Domain.SellerAggregate.Repository;
+
 
 namespace Shop.Application.Orders.AddItem
 {
