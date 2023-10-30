@@ -24,5 +24,16 @@ namespace Shop.Domain.SellerAggregate
 
         public int? PersentageDiscount { get; private set; }
 
+
+        public void Edit(int count, int price, int? persentageDiscount)
+        {
+
+            if (price < 1 || count < 0)
+                throw new InvalidDomainDataException();
+            Count = count;
+            Price = price;
+            PersentageDiscount = persentageDiscount;
+        }
+    }
     }
 }

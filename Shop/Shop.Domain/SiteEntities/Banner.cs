@@ -1,4 +1,5 @@
-﻿using Common.Domain.Exceptions;
+﻿using Common.Domain;
+using Common.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Shop.Domain.SiteEntities
 {
-    public class Banner
+    public class Banner:BaseEntity
     {
         public Banner(string link, string imageName, BannerPosition position)
         {

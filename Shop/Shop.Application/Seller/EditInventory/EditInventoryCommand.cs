@@ -37,9 +37,17 @@ namespace Shop.Application.Seller.EditInventory
             _repository = repository;
         }
 
-        public Task<OperationResult> Handle(EditInventoryCommand request, CancellationToken cancellationToken)
+        public async Task<OperationResult> Handle(EditInventoryCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+        
+        var seller= await _repository.GetTracking(request.InventoryId);
+            if (seller == null)
+                return OperationResult.NotFound();
+          
+            seller.EditInventory(request.InventoryId,request.Count,request.Price,request.PersentageDiscount);
+           await _repository.Save();
+
+            return OperationResult.Success();
         }
     }
 
