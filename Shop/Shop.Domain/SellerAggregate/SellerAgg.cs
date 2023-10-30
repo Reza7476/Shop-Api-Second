@@ -1,6 +1,7 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
 using Shop.Domain.SellerAggregate.Enums;
+using Shop.Domain.SellerAggregate.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,14 +21,16 @@ namespace Shop.Domain.SellerAggregate
         public List<SellerInventoryAgg> Inventories { get; private set; }
         public DateTime? LastUpdate { get; internal set; }
 
-        public SellerAgg(long userId, string shopName, string natiaonalCode)
+        public SellerAgg(long userId, string shopName, string natiaonalCode,ISellerDomainService domainService)
         {
             Guard(shopName, natiaonalCode);
             UserId = userId;
             ShopName = shopName;
             NatiaonalCode = natiaonalCode;
-
             Inventories = new List<SellerInventoryAgg>();
+
+            if (domainService.CheckSellerInfo(this) == false) 
+                throw new InvalidDomainDataException("اطلاعات نامعتبر است");
         }
         private SellerAgg()
         {
@@ -70,9 +73,15 @@ namespace Shop.Domain.SellerAggregate
             Status = status;
             LastUpdate = DateTime.Now;
         }
-        public void Edit(string shopName, string nationalCode)
+        public void Edit(string shopName, string nationalCode,ISellerDomainService domainService)
         {
             Guard(shopName, nationalCode);
+
+            if (nationalCode != NatiaonalCode)
+            {
+                if (domainService.NationalCodeExistInDataBAse(nationalCode))
+                    throw new InvalidDomainDataException("کد ملی متعلق به شخص دیگری است");
+            }
             ShopName = shopName;
             NatiaonalCode = nationalCode;
 
