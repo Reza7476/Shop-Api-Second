@@ -80,12 +80,13 @@ namespace Shop.Domain.ProductAggregate
         }
 
 
-        public void RemoveImage(long Id)
+        public string RemoveImage(long Id)
         {
             var image = Images.FirstOrDefault(f => f.Id == Id);
             if (image == null)
-                return;
+                throw new NullOrEmptyDomainDataException("عکس یافت نشد");
             Images.Remove(image);
+            return image.ImageName;
         }
         public void SetSpecification(List<ProductSpecification> specifications)
         {
@@ -95,7 +96,7 @@ namespace Shop.Domain.ProductAggregate
         }
 
 
-        public void Guard(string title,  string description, string slug,
+        private void Guard(string title,  string description, string slug,
             IProductDomainService productDomainService)
         {
             NullOrEmptyDomainDataException.CheckString(title, nameof(title));
@@ -104,7 +105,7 @@ namespace Shop.Domain.ProductAggregate
 
             if (slug != Slug)
                 if (productDomainService.SlugIsExist(slug.ToSlug()))
-                    throw new SlugIsDublicatedException("");
+                    throw new SlugIsDublicatedException();
 
 
 

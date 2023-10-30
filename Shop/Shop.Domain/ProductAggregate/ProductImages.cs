@@ -13,7 +13,6 @@ namespace Shop.Domain.ProductAggregate
         }
 
         public long ProductId { get; internal set; }
-
         public string ImageName { get; private set; }
         public int Sequence { get; private set; }
 

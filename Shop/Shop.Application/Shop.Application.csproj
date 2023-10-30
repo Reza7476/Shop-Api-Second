@@ -12,9 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Product\Create\" />
-    <Folder Include="Product\Edit\" />
-    <Folder Include="Product\AddImage\" />
     <Folder Include="Product\RemoveImage\" />
   </ItemGroup>
 
