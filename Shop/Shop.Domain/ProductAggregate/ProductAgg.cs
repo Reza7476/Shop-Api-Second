@@ -48,7 +48,8 @@ namespace Shop.Domain.ProductAggregate
 
 
         public void Edit(string title, string imageName, string description,
-            long categoryId, long subCategoryId, long secondrySubCategoryId, string slug, SeoData seoData, IProductDomainService domainService)
+            long categoryId, long subCategoryId, 
+            long secondrySubCategoryId, string slug, SeoData seoData, IProductDomainService domainService)
         {
 
             Guard(title, imageName, description, slug, domainService);
