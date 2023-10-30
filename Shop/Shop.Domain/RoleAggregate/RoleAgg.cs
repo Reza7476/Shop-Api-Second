@@ -10,14 +10,8 @@ namespace Shop.Domain.RoleAggregate
 {
     public class RoleAgg : AggregateRoot
     {
-
-
-
-
         public string Title { get; private set; }
         public List<RolePermissionAgg> Permissions { get; private set; }
-
-
         private RoleAgg()//برای efcore
         {
 

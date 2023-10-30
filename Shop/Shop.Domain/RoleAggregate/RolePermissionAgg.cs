@@ -5,8 +5,13 @@ namespace Shop.Domain.RoleAggregate
 {
     public class RolePermissionAgg : BaseEntity
     {
-        public long RoleAggTd { get; set; }
-        public RolePermission RolePermissio { get; set; }
+        public RolePermissionAgg(RolePermission rolePermissio)
+        {
+            RolePermissio = rolePermissio;
+        }
+
+        public long RoleAggTd { get; internal set; }
+        public RolePermission RolePermissio { get;private set; }
     }
 
 
