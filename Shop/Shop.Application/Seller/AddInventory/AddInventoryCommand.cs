@@ -1,16 +1,19 @@
-﻿using Common.Domain;
-using Common.Domain.Exceptions;
+﻿using Common.Application;
+using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Shop.Domain.SellerAggregate
+namespace Shop.Application.Seller.AddInventory
 {
-    public class SellerInventoryAgg : BaseEntity
+    public class AddInventoryCommand:IBaseCommand
     {
-        public SellerInventoryAgg(long productId, int count, int price, int? persentageDiscount)
+        public AddInventoryCommand(long sellerId, long productId,
+            int count, int price, int? persentageDiscount)
         {
-
-
-            if (price < 1 || count < 0)
-                throw new InvalidDomainDataException();
+            SellerId = sellerId;
             ProductId = productId;
             Count = count;
             Price = price;
@@ -21,8 +24,9 @@ namespace Shop.Domain.SellerAggregate
         public long ProductId { get; private set; }
         public int Count { get; private set; }
         public int Price { get; private set; }
-
         public int? PersentageDiscount { get; private set; }
 
+
     }
+
 }

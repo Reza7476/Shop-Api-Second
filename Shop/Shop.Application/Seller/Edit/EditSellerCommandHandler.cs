@@ -22,7 +22,7 @@ namespace Shop.Application.Seller.Edit
             if (seller == null)
                 return OperationResult.Success();
             seller.Edit(request.ShopName, request.NationalCode, _domainService);
-
+            seller.ChangeStatus(request.Status);
 
             _repository.Save();
 

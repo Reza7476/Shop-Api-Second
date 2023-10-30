@@ -48,26 +48,25 @@ namespace Shop.Domain.SellerAggregate
             Inventories.Add(inventory);
         }
 
-        public void EditInventory(SellerInventoryAgg newInventory)
+        public void EditInventory(long inventoryId,int count,int price,int? discountPersentage)
         {
-            var currentInventory = Inventories.FirstOrDefault(f => f.Id == newInventory.Id);
+            var currentInventory = Inventories.FirstOrDefault(f => f.Id == inventoryId);
             if (currentInventory == null)
                 throw new NullOrEmptyDomainDataException("محصول یافت نشد");
-            Inventories.Remove(currentInventory);
-            Inventories.Add(newInventory);
 
-
-        }
-
-        public void DeletInventory(long inventoryId)
-        {
-            var inventory = Inventories.FirstOrDefault(f => f.Id == inventoryId);
-            if (inventory == null)
-                throw new NullOrEmptyDomainDataException("محصول یافت نشد");
-
-            Inventories.Remove(inventory);
+            currentInventory.Edit( count, price, discountPersentage);
 
         }
+
+        //public void DeletInventory(long inventoryId)
+        //{
+        //    var inventory = Inventories.FirstOrDefault(f => f.Id == inventoryId);
+        //    if (inventory == null)
+        //        throw new NullOrEmptyDomainDataException("محصول یافت نشد");
+
+        //    Inventories.Remove(inventory);
+
+        //}
         public void ChangeStatus(SellerStatus status)
         {
             Status = status;
