@@ -86,17 +86,24 @@ namespace Shop.Domain.UserAggregate
             address.UserId = Id;
             Addresses.Add(address);
         }
-        public void EditAddress(UserAddress address)
+       
+        
+
+
+        public void EditAddress(UserAddress address, long addressId)
         {
-            var oldaddress = Addresses.FirstOrDefault(f => f.Id == address.Id);
+            var oldaddress = Addresses.FirstOrDefault(f => f.Id == addressId);
             if (oldaddress != null)
-
                 throw new NullOrEmptyDomainDataException("Address Not Found");
-
-
-            Addresses.Remove(oldaddress);
-            Addresses.Add(address);
+           // address.Id=addressId;
+          
+            oldaddress.Edit(address.Province,address.City,address.PostalCode,address.Name,address.Family,
+                address.PostalAddress,address.PhoneNumber,address.NationalCode);
+            //Addresses.Remove(oldaddress);
+            //Addresses.Add(address);
         }
+
+
 
         public void DeleteAddress(long addressId)
         {
