@@ -11,8 +11,4 @@
     <ProjectReference Include="..\Shop.Domain\Shop.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Product\RemoveImage\" />
-  </ItemGroup>
-
 </Project>

@@ -15,18 +15,24 @@ using System.Xml.Linq;
 
 namespace Shop.Domain.UserAggregate
 {
-    public class User : AggregateRoot
+    public class UserAgg : AggregateRoot
     {
-        public User(string name, string family, string phoneNumber, string email, string password, string avatorName, Gender gender, IDomainUserService domainSrvice)
+
+      
+        public UserAgg(string name, string family, string phoneNumber, string email,
+            string password, Gender gender, IDomainUserService domainSrvice)
         {
             Name = name;
             Family = family;
             PhoneNumber = phoneNumber;
             Email = email;
             Password = password;
-            AvatorName = avatorName;
-
             Gender = gender;
+            AvatarName = "Avatar.png";
+            IsActive = true;
+            Roles = new();
+            wallets = new();
+            Addresses = new();
             Guard(phoneNumber, email, domainSrvice);
 
         }
@@ -36,16 +42,19 @@ namespace Shop.Domain.UserAggregate
         public string PhoneNumber { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }
-        public string AvatorName { get; private set; }
-        public string IsActive { get; set; }
+        public string AvatarName { get;  set; }
+        public bool IsActive { get; set; }
 
         public Gender Gender { get; private set; }
+        //public IDomainUserService DomainSrvice { get; }
         public List<UserRoles> Roles { get; private set; }
         public List<UserAddress> Addresses { get; private set; }
         public List<UserWallet> wallets { get; set; }
 
 
-        public void Edit(string name, string family, string phoneNumber, string email, string avatorName, Gender gender, IDomainUserService domainSrvice)
+        public void Edit(string name,
+            string family, string phoneNumber, string email, 
+           Gender gender, IDomainUserService domainSrvice)
         {
 
 
@@ -54,10 +63,24 @@ namespace Shop.Domain.UserAggregate
             Family = family;
             PhoneNumber = phoneNumber;
             Email = email;
-            AvatorName = avatorName;
             Gender = gender;
         }
 
+
+
+
+        public static UserAgg RegisterUser( string phoneNumber, string password, IDomainUserService domainService)
+        {
+
+            return new UserAgg("", "", phoneNumber, null, password, Gender.None, domainService);
+        }
+       
+        public void SetAvatar(string imageName)
+        {
+            if (string.IsNullOrWhiteSpace(imageName))
+                imageName = "Avatar.png";
+            AvatarName = imageName;
+        }
         public void AddAddress(UserAddress address)
         {
             address.UserId = Id;
@@ -113,12 +136,9 @@ namespace Shop.Domain.UserAggregate
 
         }
 
+       
 
 
-
-        public static User RegisterUser(string email, string phoneNumber, string password, IDomainUserService domainService)
-        {
-            return new User("", "", phoneNumber, email, password, "", Gender.None, domainService);
-        }
+      
     }
 }
