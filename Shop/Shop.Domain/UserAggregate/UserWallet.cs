@@ -6,15 +6,16 @@ namespace Shop.Domain.UserAggregate
 {
     public class UserWallet : BaseEntity
     {
-        public UserWallet(int price, string description, bool isFinally,
-            DateTime? finalDate, WalletType type)
+        public UserWallet(int price, string description, bool isFinally, WalletType type)
+          
         {
             if (price < 1000) throw new InvalidDomainDataException();
             Price = price;
             Description = description;
             IsFinally = isFinally;
-            FinalDate = finalDate;
             Type = type;
+            if (IsFinally)
+                FinalDate = DateTime.Now;
         }
 
         public long UserId { get; internal set; }
