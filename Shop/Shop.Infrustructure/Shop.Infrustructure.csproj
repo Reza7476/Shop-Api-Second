@@ -18,11 +18,4 @@
     <ProjectReference Include="..\Shop.Application\Shop.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Persistant.Ef\CategoryAggregate\" />
-    <Folder Include="Persistant.Ef\RoleAggregate\" />
-    <Folder Include="Persistant.Ef\SellerAggregate\" />
-    <Folder Include="Persistant.Ef\CommentAggregate\" />
-  </ItemGroup>
-
 </Project>
