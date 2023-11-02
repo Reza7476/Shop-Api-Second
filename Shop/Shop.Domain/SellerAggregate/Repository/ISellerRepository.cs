@@ -11,7 +11,7 @@ namespace Shop.Domain.SellerAggregate.Repository
     public interface ISellerRepository : IBaseRepository<SellerAgg>
     {
 
-        Task<InventoryResult> GetInventoryById(long Id);
+        Task<InventoryResult?> GetInventoryById(long Id);
     }
     public class InventoryResult
     {
